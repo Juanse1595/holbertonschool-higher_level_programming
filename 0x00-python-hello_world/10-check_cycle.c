@@ -8,7 +8,7 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_t *p1 = list, *p2 = (list)->next;
+	listint_t *p1 = list, *p2 = list;
 
 	do {
 		p1 = p1->next;
