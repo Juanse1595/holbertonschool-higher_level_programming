@@ -68,10 +68,10 @@ class Square:
     def my_print(self):
         '''Prints the square in stdout'''
         if self.__size == 0:
-            print()
+            print("")
         else:
             for blanck_row in range(self.__position[1]):
-                print()
+                print("")
             for row in range(0, self.__size):
                 for blank_column in range(self.__position[0]):
                     print(" ", end="")
