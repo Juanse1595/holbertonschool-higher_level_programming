@@ -1,0 +1,66 @@
+==========================
+2-matrix_divided test file
+==========================
+
+This is the test file for 2-matrix_divided function:
+    matrix_divided(matrix, div)
+
+This function receives two arguments, one is a list of
+lists of integers or floats. div also has to be an
+integer or float
+
+========
+run test
+========
+
+python3 -m doctest ./tests/2-matrix_divided.txt
+
+================
+import function:
+================
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+============
+matrix declaration
+============
+
+>>> matrix = [[1, 2, 3], [-35, 456, 0]]
+
+===========
+Test cases
+===========
+
+Test 1: normal input int and float matrix and div
+>>> matrix_divided(matrix, 2)
+[[0.5, 1.0, 1.5], [-17.5, 228.0, 0.0]]
+
+>>> matrix_divided(matrix, -5.4)
+[[-0.19, -0.37, -0.56], [6.48, -84.44, -0.0]]
+
+>>> matrix_divided(matrix, float('inf'))
+[[0.0, 0.0, 0.0], [-0.0, 0.0, 0.0]]
+
+Test 2: matrix with elements different of int or float
+>>> matrix = [['a', 2], [2, 1]]
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test 3: Each row of the matrix must have the same size
+>>> matrix = [[1], [2, 3, 445]]
+>>> matrix_divided(matrix, 4)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
+Test 4: div must be int or float
+>>> matrix = [[1, 2]]
+>>> matrix_divided(matrix, 'a')
+Traceback (most recent call last):
+TypeError: div must be a number
+
+Test 5: div must not be 0
+>>> matrix = [[3, 4], [3, 5]]
+>>> matrix_divided(matrix, 0)
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
