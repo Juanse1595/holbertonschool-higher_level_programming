@@ -9,9 +9,9 @@ This function receives two arguments, one is a list of
 lists of integers or floats. div also has to be an
 integer or float
 
-========
-run test
-========
+================
+run test command
+================
 
 python3 -m doctest ./tests/2-matrix_divided.txt
 
@@ -21,9 +21,9 @@ import function:
 
 >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
-============
+==================
 matrix declaration
-============
+==================
 
 >>> matrix = [[1, 2, 3], [-35, 456, 0]]
 
