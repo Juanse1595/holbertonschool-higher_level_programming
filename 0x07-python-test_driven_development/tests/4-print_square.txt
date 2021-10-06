@@ -1,0 +1,64 @@
+==========================
+4-print_square test file
+==========================
+
+This is the test file for 4-print_square function:
+    print_square(size)
+
+This function receives size as an argument, which is
+the size of the square to be printed. It must be an
+int
+
+========
+run test
+========
+
+python3 -m doctest ./tests/4-print_square.txt
+
+================
+import function:
+================
+
+>>> print_square = __import__('4-print_square').print_square
+
+===========
+Test cases
+===========
+
+Test 1: normal input
+>>> print_square(3)
+###
+###
+###
+
+>>> print_square(2)
+##
+##
+
+>>> print_square(1)
+#
+
+>>> print_square(0)
+
+Test 2: size is not int
+>>> print_square('a')
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> print_square(3.1254)
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> print_square(-5.2)
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+Test 3: size is negative int
+>>> print_square(-10)
+Traceback (most recent call last):
+ValueError: size must be >= 0
+
+Test 4: size is inf
+>>> print_square(float('inf'))
+Traceback (most recent call last):
+TypeError: size must be an integer
