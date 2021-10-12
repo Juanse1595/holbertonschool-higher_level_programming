@@ -1,0 +1,25 @@
+=========================
+7-base_geometryu test file
+=========================
+
+This is the test file for BaseGeometry class
+
+========
+run test
+========
+
+python3 -m doctest ./tests/7-base_geometry.txt
+
+================
+import function:
+================
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", "John")
+[TypeError] name must be an integer
+
+>>> bg.integer_validator("age", 0)
+[ValueError] age must be greater than 0
+

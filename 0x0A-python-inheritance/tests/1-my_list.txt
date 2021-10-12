@@ -1,0 +1,35 @@
+=========================
+1-my_list test file
+=========================
+
+This is the test file for 1-my_list function:
+    print_sorted(self)
+
+It is part of the MyList subclass of list class.
+It prints a list that is sorted in ascending
+order.
+
+========
+run test
+========
+
+python3 -m doctest ./tests/1-my_list.txt
+
+================
+import function:
+================
+
+>>> MyList = __import__('1-my_list').MyList
+
+Test 1: Normal input
+>>> my_list = MyList()
+>>> my_list.append(-21)
+>>> my_list.append(0)
+>>> my_list.append(142)
+>>> my_list.print_sorted()
+[-21, 0, 142]
+
+Test 2: Empty list
+>>> my_list = MyList()
+>>> my_list.print_sorted()
+[]
