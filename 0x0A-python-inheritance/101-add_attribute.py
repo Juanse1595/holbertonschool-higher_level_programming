@@ -4,8 +4,7 @@
 
 def add_attribute(self, attr, value):
     '''try to add attribute'''
-    return_get = getattr(self, '__slots__', "noup")
-    if return_get != "noup":
+    if not ('__dict__' in dir(self)):
         raise TypeError("can't add new attribute")
     setattr(self, attr, value)
     
