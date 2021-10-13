@@ -7,4 +7,3 @@ def add_attribute(self, attr, value):
     if not ('__dict__' in dir(self)):
         raise TypeError("can't add new attribute")
     setattr(self, attr, value)
-    
