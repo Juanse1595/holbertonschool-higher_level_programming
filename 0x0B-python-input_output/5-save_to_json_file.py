@@ -11,4 +11,5 @@ def save_to_json_file(my_obj, filename):
     Returns an object (Python data structure)
     represented by a JSON string
     '''
-    return json.dump(my_obj, filename)
+    with open(filename, mode='w') as file_1
+        return json.dump(my_obj, file_1)
