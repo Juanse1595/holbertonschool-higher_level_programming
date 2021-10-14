@@ -1,0 +1,60 @@
+=========================
+0-add_integer test file
+=========================
+
+This is the test file for 0-add_integer function:
+    add_integer(a, b=98)
+
+This function receives two arguments a and b that
+must be integers or floats. If floats are received
+they must be cast to integers.
+
+>>> import pycodestyle
+>>> fchecker = pycodestyle.Checker('0-add_integer.py', show_source=True)
+>>> file_errors = fchecker.check_all()
+
+Test 1: Normal input
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(1, 2)
+3
+
+Test 2: bad 'a' input
+>>> add_integer('b', 2)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer((), 65)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+Test 3: bad 'b' input
+>>> add_integer(5, [1, 2])
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+Test 3.1: no 'b' input
+>>> add_integer(2)
+100
+
+Test 4: a is a float
+>>> add_integer(2.4, 8)
+10
+
+Test 5: b is a float
+>>> add_integer(3, 9.323)
+12
+
+Test 6: a or b are float('inf')
+>>> add_integer(1, float('inf'))
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+Test 6.1: a or b are float('-inf')
+>>> add_integer(1, float('-inf'))
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+Test 7: a or b are float('NaN')
+>>> add_integer(float('nan'), 32)
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer

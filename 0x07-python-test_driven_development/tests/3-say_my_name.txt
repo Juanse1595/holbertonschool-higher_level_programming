@@ -1,0 +1,49 @@
+=================
+3-say_my_name.txt
+=================
+
+This is the test file for 3-say_my_name function:
+    say_my_name(first_name, last_name="")
+
+This function receives two arguments, the two are
+strings that will be printed.
+
+================
+run test command
+================
+
+python3 -m doctest ./tests/3-say_my_name.txt
+
+===============
+import function
+===============
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+==========
+Test cases
+==========
+
+Test 1: normal input
+>>> say_my_name('Juan', 'Perea')
+My name is Juan Perea
+
+>>> a = 'hello'
+>>> b = 'world'
+>>> say_my_name(a, b)
+My name is hello world
+
+Test 2: incorrect input
+>>> say_my_name(2, 3)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name('Mick', ['Restrepo'])
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name(None, None)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+

@@ -1,0 +1,55 @@
+============================
+5-text_indentation test file
+============================
+
+This is the test file for 5-text_indentation function:
+    text_indentation(text)
+
+This function receives size as an argument, which is
+the text to be printed. It must be type str
+
+========
+run test
+========
+
+python3 -m doctest ./tests/5-text_indentation.txt
+
+================
+import function:
+================
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+===========
+Test cases
+===========
+
+Test 1: text is not str
+>>> text_indentation(2)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation(('hola', 'mundo'))
+Traceback (most recent call last):
+TypeError: text must be a string
+
+Test 2: normal input
+>>> text_indentation('hello. world: are you there?  ')
+hello.
+<BLANKLINE>
+world:
+<BLANKLINE>
+are you there?
+<BLANKLINE>
+
+>>> text_indentation('   hi  ???')
+hi  ?
+<BLANKLINE>
+?
+<BLANKLINE>
+?
+<BLANKLINE>
+
+>>> text_indentation('   ')
+
+
