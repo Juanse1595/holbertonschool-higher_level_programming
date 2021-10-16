@@ -33,3 +33,9 @@ Test 2: Empty list
 >>> my_list = MyList()
 >>> my_list.print_sorted()
 []
+
+Test 3: __str__
+>>> print(my_list)
+[-21, 0, 142]
+
+
