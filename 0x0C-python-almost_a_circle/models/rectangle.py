@@ -18,3 +18,4 @@ class Rectangule(Base):
 
         Methods:
         __init__
+
