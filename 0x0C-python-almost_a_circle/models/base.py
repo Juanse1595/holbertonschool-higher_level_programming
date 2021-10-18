@@ -18,6 +18,7 @@ class Base:
         __init__
         to_json_string
         save_to_file
+        from_json_string
     '''
     __nb_objects = 0
 
@@ -61,3 +62,9 @@ class Base:
         if json_string is None or json_string == "":
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        dummy = cls(1, 1)
+        dummy.update(**dictionary)
+        return dummy
