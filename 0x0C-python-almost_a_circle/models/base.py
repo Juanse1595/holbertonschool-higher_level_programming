@@ -39,7 +39,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         '''
-        save in a file the json 
+        save in a file the json
         representation of list_objs
         '''
         if list_objs is None:
