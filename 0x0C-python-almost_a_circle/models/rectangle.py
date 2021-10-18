@@ -23,6 +23,7 @@ class Rectangle(Base):
         display
         __str__
         update
+        to_dictionary
     '''
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -104,5 +105,30 @@ class Rectangle(Base):
                 self.__height = args[2]
             if len(args) >= 4:
                 self.__x = args[3]
-            if len (args) >= 5:
+            if len(args) >= 5:
                 self.__y = args[4]
+        else:
+            try:
+                self.id = kwargs['id']
+            except KeyError:
+                pass
+            try:
+                self.__x = kwargs['x']
+            except KeyError:
+                pass
+            try:
+                self.__y = kwargs['y']
+            except KeyError:
+                pass
+            try:
+                self.__width = kwargs['width']
+            except KeyError:
+                pass
+            try:
+                self.__height = kwargs['height']
+            except KeyError:
+                pass
+
+    def to_dictionary(self):
+        return {'x': self.x, 'y': self.y, 'id': self.id,
+                'height': self.height, 'width': self.width}
