@@ -41,6 +41,7 @@ class Base:
         '''
         save in a file the json
         representation of list_objs
+        @list_objs: list of objects to be represented in json
         '''
         if list_objs is None:
             list_objs = []
@@ -50,3 +51,13 @@ class Base:
         json_dict = Base.to_json_string(instances_dict)
         with open('{}.json'.format(cls.__name__), mode='w') as file_1:
             file_1.write(json_dict)
+
+    @staticmethod
+    def from_json_string(json_string):
+        '''
+        returns the list of the JSON string representation json_sting
+        @json_string: string representing a list of dictionaries
+        '''
+        if json_string is None or json_string == "":
+            return []
+        return json.loads(json_string)
