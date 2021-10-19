@@ -65,6 +65,26 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        '''
+        create a new instance with the atrributes
+        from dictionary
+        @dictionary: dict with attributes for the
+        new instance
+        '''
         dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        '''returns a list of instances'''
+        try:
+            with open('{}.json'.format(cls.__name__), mode='r') as f:
+                obj_list = cls.from_json_string(f.read())
+        except FileNotFoundError:
+            return []
+        inst_list = []
+        for elm in obj_list:
+            dummy = cls.create(**elm)
+            inst_list.append(dummy)
+        return inst_list
