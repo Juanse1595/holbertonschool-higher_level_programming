@@ -5,4 +5,3 @@ if (!firstarg) {
 } else {
   console.log(firstarg);
 }
-
