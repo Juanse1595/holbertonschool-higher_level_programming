@@ -1,6 +1,8 @@
 #!/usr/bin/python3
+'''1-filter_states module'''
 import sys
 import MySQLdb
+
 
 if __name__ == '__main__':
     conn = MySQLdb.connect(host="localhost", port=3306,
