@@ -16,8 +16,8 @@ if __name__ == "__main__":
     session = Session()
     first_object = session.query(State
                                  ).order_by(State.id).first()
-    if first_object:
-        print('{}: {}'.format(first_object.id,
+    if (first_object is not None):
+        print('{:d}: {:s}'.format(first_object.id,
                               first_object.name))
     else:
         print('Nothing')
