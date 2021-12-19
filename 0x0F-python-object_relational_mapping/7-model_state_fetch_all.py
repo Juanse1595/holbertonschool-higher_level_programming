@@ -2,7 +2,7 @@
 """Start link class to table in database """
 import sys
 from model_state import Base, State
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import session, sessionmaker
 from sqlalchemy import (create_engine)
 
 if __name__ == "__main__":
@@ -13,6 +13,6 @@ if __name__ == "__main__":
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    for instance in session.query(State).order_by(State.id):
+    for instance in session.query(State).order_by(State.id).all():
         print('{}: {}'.format(instance.id, instance.name))
     session.close()
