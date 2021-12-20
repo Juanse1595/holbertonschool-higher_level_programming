@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""14th module"""
+"""14th module - this module works with two tables:
+State and City
+"""
 import sys
 from model_state import Base, State
 from sqlalchemy.orm import session, sessionmaker
