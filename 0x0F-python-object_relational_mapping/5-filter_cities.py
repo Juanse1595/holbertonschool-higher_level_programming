@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''4-cities_by_state module'''
+'''5-filter_cities.py module'''
 import sys
 import MySQLdb
 
@@ -9,12 +9,14 @@ if __name__ == '__main__':
                            user=sys.argv[1], passwd=sys.argv[2],
                            db=sys.argv[3])
     cur = conn.cursor()
-    cur.execute("SELECT cities.id, cities.name, states.name \
-                FROM cities \
-                JOIN states ON states.id = cities.state_id \
-                ORDER BY cities.id ASC")
+    cur.execute("""SELECT name
+                FROM cities
+                WHERE state_id =
+                (SELECT id
+                FROM states
+                WHERE name LIKE BINARY %s)
+                ORDER BY id ASC""", (sys.argv[4],))
     query_rows = cur.fetchall()
-    for row in query_rows:
-        print(row)
+    print(', '.join(row[0] for row in query_rows))
     cur.close()
     conn.close()
