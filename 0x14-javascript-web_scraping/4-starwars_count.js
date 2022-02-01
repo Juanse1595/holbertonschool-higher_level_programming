@@ -7,19 +7,16 @@ const request = require('request');
 request(url, (error, response, body) => {
   if (error) {
     console.error(error);
-  } else if (response.statusCode === 200) {
-    const newBody = JSON.parse(body);
-    const filmObjs = newBody.results;
-    let count = 0;
-    filmObjs.forEach((film) => {
-      film.characters.forEach((character) => {
-        if (character === 'https://swapi-api.hbtn.io/api/people/18/') {
-          count++;
-        }
-      });
-    });
-    console.log(count);
-  } else {
-    console.log('Bad url');
   }
+  const newBody = JSON.parse(body);
+  const filmObjs = newBody.results;
+  let count = 0;
+  filmObjs.forEach((film) => {
+    film.characters.forEach((character) => {
+      if (character.includes('18')) {
+        count++;
+      }
+    });
+  });
+  console.log(count);
 });
